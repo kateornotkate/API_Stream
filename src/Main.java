@@ -26,7 +26,7 @@ public class Main {
                 .filter(p -> p.getSex().equals(Sex.MAN))
                 .filter(p -> p.getAge() >= 18 && p.getAge() < 27)
                 .limit(10) // java отфильтрует весь список, но выведет в консоль только 10 случайных фамилий;
-                .map(Person::getFamily).toList() // возвращаем результат в виде фамилий и сохраняем отсортированные данные в новый лист;
+                .map(Person::getFamily)
                 .forEach(System.out::println);
 
         System.out.println("\nСписок потенциально трудоспособного населения: ");
@@ -35,8 +35,8 @@ public class Main {
                 .filter(p -> p.getAge() > 18)
                 .filter(p -> p.getSex().equals(Sex.WOMAN) && p.getAge() < 60
                         || p.getSex().equals(Sex.MAN) && p.getAge() < 65)
-                .limit(15) // лимит для вывода;
-                .sorted(Comparator.comparing(Person::getFamily)).toList() // отсортирует людей по фамилиям в алфавитном порядке и сохранит результат в лист;
+                .limit(15)
+                .sorted(Comparator.comparing(Person::getFamily))
                 .forEach(System.out::println);
     }
 }
